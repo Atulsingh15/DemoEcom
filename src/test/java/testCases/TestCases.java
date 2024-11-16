@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 
 import elements.LoginPage;
 
-
+test
 public class TestCases {
 	public WebDriver driver;
 	LoginPage config = new LoginPage();
