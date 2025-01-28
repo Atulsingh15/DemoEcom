@@ -3,6 +3,7 @@ package elements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage {
 
@@ -35,6 +36,7 @@ public class LoginPage {
 	public By verifyaccount=By.linkText("//b[text()='Account Created!']");
 	public By continu=By.xpath("//a[normalize-space()='Continue']");
 	public By delete=By.xpath("//a[text()=' Delete Account']");
+	
 
 	//    public void EnterName(String name) {
 	//		driver.findElement(signname);

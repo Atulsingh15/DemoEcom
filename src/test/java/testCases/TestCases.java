@@ -13,23 +13,28 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import elements.LoginPage;
+import elements.Scenerio2to5;
 
 public class TestCases {
 	public WebDriver driver;
 	LoginPage config = new LoginPage();
-	LoginPage login;
+	//LoginPage login;
 
-	@BeforeTest
+	@BeforeClass
 	public void setup() {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 	}
-	@Test
+	@Test(enabled = false)
 	public void registerUser() throws InterruptedException, IOException {
 
 		Properties prop =new Properties();
@@ -100,30 +105,85 @@ public class TestCases {
 		driver.findElement(config.createaccount).click();
 		//14. Verify that 'ACCOUNT CREATED!' is visible;
 		//WebElement verifyaccounts = driver.findElement(config.verifyaccount);
-		
+
 		//String expect="Account Created!";
 		//String actu= verifyaccounts.getText();
 
-	//Assert.assertEquals(actu, expect, "The text on the page does not match the expected value.");
-		
+		//Assert.assertEquals(actu, expect, "The text on the page does not match the expected value.");
+
 		//15. Click 'Continue' button
 		driver.findElement(config.continu).click();
-		
+
 		//16. Verify that 'Logged in as username' is visible
-		
+
 		//17. Click 'Delete Account' button
 		driver.findElement(config.delete).click();
 		//18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
 
-
-
 	}
 
-	@AfterTest
+	@AfterClass
 	public void down() {
 		driver.close();
 		driver.quit();
 	}
 
 
+}
+
+class scenerio2to5 {
+	Scenerio2to5 config1 = new Scenerio2to5();
+	public WebDriver driver;
+
+
+	@BeforeMethod
+	public void setup() {
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+	}
+	@Test
+	public void testscenerio2() throws InterruptedException, IOException {
+		Properties prop =new Properties();
+		FileInputStream fiss = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/resources.properties");
+
+		//FileInputStream fiss = new FileInputStream("C:\\Users\\dell\\Desktop\\selenium\\DemoEcom\\src\\test\\resources\\resources.properties");
+		prop.load(fiss);
+		String password = prop.getProperty("password");
+		String lmail = prop.getProperty("lmail");
+		String username =prop.getProperty("username");
+
+		driver.get(config1.baseUrl);
+		Thread.sleep(5000);
+		WebElement verify1=	driver.findElement(config1.indexverify);
+		String actual ="Home";
+		String expected =verify1.getText();
+		Assert.assertEquals(actual, expected, "The text on the page does not match the expected value.");
+		driver.findElement(config1.loginpage).click();
+		WebElement verify2 =driver.findElement(config1.loginver);
+		String act="Login to your account";
+		String expe =verify2.getText();
+		Assert.assertEquals(act, expe,"The text on the page does not match the expected value.");
+		// Enter correct email address and password
+		driver.findElement(config1.email).sendKeys(lmail);
+		driver.findElement(config1.password).sendKeys(password);
+		driver.findElement(config1.submit).click();
+		WebElement verify3 =driver.findElement(config1.userverify);
+		String act1 =verify3.getText();
+		String exp1 = "Logged in as " + username;
+		Assert.assertEquals(act1, exp1,"The text on the page does not match the expected value.");
+		//we can not delete currently
+
+
+
+
+	}
+
+
+
+	@AfterMethod
+	public void tearDown() {
+		if (driver != null) {
+			driver.quit();
+		}
+	}
 }
