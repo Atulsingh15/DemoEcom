@@ -1,10 +1,13 @@
 package testCases;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -21,12 +24,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+
 import elements.LoginPage;
 import elements.Scenerio2to5;
 
 public class TestCases {
 	public WebDriver driver;
 	LoginPage config = new LoginPage();
+	excel config4 = new excel();
 	//LoginPage login;
 
 	@BeforeClass
@@ -141,7 +146,7 @@ class scenerio2to5 {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 	}
-	@Test
+	@Test(enabled = false)
 	public void testscenerio2() throws InterruptedException, IOException {
 		Properties prop =new Properties();
 		FileInputStream fiss = new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/resources.properties");
@@ -176,6 +181,25 @@ class scenerio2to5 {
 
 
 
+	}
+	@Test(enabled=false)
+	public void scenerio3() throws FileNotFoundException, IOException, InterruptedException {
+		driver.get(config1.baseUrl);
+		Thread.sleep(5000);
+		WebElement verify1=	driver.findElement(config1.indexverify);
+		String actual ="Home";
+		String expected =verify1.getText();
+		Assert.assertEquals(actual, expected, "The text on the page does not match the expected value.");
+		driver.findElement(config1.loginpage).click();
+		WebElement verify2 =driver.findElement(config1.loginver);
+		String act="Login to your account";
+		String expe =verify2.getText();
+		Assert.assertEquals(act, expe,"The text on the page does not match the expected value.");
+		// Enter correct email address and password
+		driver.findElement(config1.email).sendKeys("arjun@g.com");
+		driver.findElement(config1.password).sendKeys("pass");
+		driver.findElement(config1.submit).click();
+		 
 	}
 
 
