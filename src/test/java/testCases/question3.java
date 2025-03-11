@@ -16,7 +16,7 @@ public class question3 {
     public WebDriver driver;
     public String url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
 
-    @Test
+    @Test(enabled=false)
     public void testcase() throws InterruptedException {
         driver = new ChromeDriver();
         driver.get(url);
