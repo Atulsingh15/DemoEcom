@@ -2,28 +2,28 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-03-11T19:17:22 IST" name="Suite" finished-at="2025-03-11T19:17:41 IST" duration-ms="19516">
+  <suite started-at="2025-03-11T21:09:24 IST" name="Default suite" finished-at="2025-03-11T21:10:52 IST" duration-ms="87809">
     <groups>
     </groups>
-    <test started-at="2025-03-11T19:17:22 IST" name="Test" finished-at="2025-03-11T19:17:41 IST" duration-ms="19516">
-      <class name="testCases.march10">
-        <test-method signature="parallel1()[pri:0, instance:testCases.march10@480d3575]" started-at="2025-03-11T19:17:22 IST" name="parallel1" finished-at="2025-03-11T19:17:32 IST" duration-ms="9929" status="PASS">
+    <test started-at="2025-03-11T21:09:24 IST" name="Default test" finished-at="2025-03-11T21:10:52 IST" duration-ms="87809">
+      <class name="testCases.windowhandle">
+        <test-method signature="handle()[pri:0, instance:testCases.windowhandle@5e2c3d18]" started-at="2025-03-11T21:09:24 IST" name="handle" finished-at="2025-03-11T21:09:33 IST" duration-ms="8743" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- parallel1 -->
-        <test-method signature="parallel2()[pri:0, instance:testCases.march10@480d3575]" started-at="2025-03-11T19:17:22 IST" name="parallel2" finished-at="2025-03-11T19:17:38 IST" duration-ms="16396" status="PASS">
+        </test-method> <!-- handle -->
+        <test-method is-config="true" signature="down()[pri:0, instance:testCases.windowhandle@5e2c3d18]" started-at="2025-03-11T21:09:33 IST" name="down" finished-at="2025-03-11T21:09:33 IST" duration-ms="516" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- parallel2 -->
-        <test-method is-config="true" signature="closed()[pri:0, instance:testCases.march10@480d3575]" started-at="2025-03-11T19:17:32 IST" name="closed" finished-at="2025-03-11T19:17:32 IST" duration-ms="329" status="PASS">
+        </test-method> <!-- down -->
+        <test-method signature="handles()[pri:0, instance:testCases.windowhandle@5e2c3d18]" started-at="2025-03-11T21:09:33 IST" name="handles" finished-at="2025-03-11T21:10:51 IST" duration-ms="77564" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- closed -->
-        <test-method is-config="true" signature="closed()[pri:0, instance:testCases.march10@480d3575]" started-at="2025-03-11T19:17:38 IST" name="closed" finished-at="2025-03-11T19:17:41 IST" duration-ms="2903" status="PASS">
+        </test-method> <!-- handles -->
+        <test-method is-config="true" signature="down()[pri:0, instance:testCases.windowhandle@5e2c3d18]" started-at="2025-03-11T21:10:51 IST" name="down" finished-at="2025-03-11T21:10:52 IST" duration-ms="874" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- closed -->
-      </class> <!-- testCases.march10 -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+        </test-method> <!-- down -->
+      </class> <!-- testCases.windowhandle -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

@@ -10,14 +10,14 @@ import org.testng.annotations.Test;
 
 public class march10 {
 	public WebDriver driver;
-	
-@Test
+	//parallel execution
+@Test(enabled=false)
 	public void parallel1 () {
 	driver =  new ChromeDriver();
 	driver.get("https://edunexttechnologies.com/school-erp.php");
     
 	}
-@Test
+@Test(enabled=false)
 public void parallel2 () {
 	driver =  new FirefoxDriver();
 	driver.get("https://edunexttechnologies.com/school-erp.php");
